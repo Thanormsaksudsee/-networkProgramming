@@ -3,7 +3,7 @@ import paramiko
 hostname = '192.168.232.131'
 username = "bigkuma"
 passwd = "123456"
-port = 20
+port = 22
 
 try: 
     p = paramiko.Transport((hostname, port))
