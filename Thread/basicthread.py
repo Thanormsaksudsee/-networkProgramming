@@ -6,7 +6,8 @@ class myThread(Thread):
         self.name = name
     
     def run(self):
-        print('Hello, my name is %s\n' %self.getName())
+        print('Hello, my name is %s\n' % self.name)
+
 
 process1 = myThread('Process 1')
 process2 = myThread('Process 2')
