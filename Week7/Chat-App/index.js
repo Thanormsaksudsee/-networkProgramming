@@ -9,8 +9,20 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 })
 
+// io.on('connection', (socket) => {
+//     console.log('a user connected');
+
+//     socket.on("disconnect", function() {
+//         console.log("user disconnected");
+//     });   
+// });
+
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+    socket.on("disconnect", (socket) =>{
+        console.log("user disconnected");
+    });   
 });
 
 server.listen(3000, () => {
