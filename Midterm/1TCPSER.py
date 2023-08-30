@@ -1,19 +1,26 @@
 import socket
+import threading
 
-HOST = '127.0.0.1'
-PORT = 10001
-
-server_socket = socket.socket()
-server_socket.bind((HOST, PORT))
-server_socket.listen()
-
-print(f"Listening on {HOST}:{PORT}")
-
-while True:
-    client_socket, _ = server_socket.accept()
-    print("Connected by", client_socket.getpeername())
-    data = client_socket.recv(1024)
-    if data:
-        print("Received:", data.decode())
-        client_socket.sendall(data)
+def handle_client(client_socket):
+    request = client_socket.recv(1024)
+    response = b"Hello from TCP Server"
+    client_socket.send(response)
     client_socket.close()
+
+def main():
+    server_ip = "127.0.0.1"
+    server_port = 8888
+    
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((server_ip, server_port))
+    server.listen(5)
+    print(f"[*] Listening on {server_ip}:{server_port}")
+    
+    while True:
+        client, addr = server.accept()
+        print(f"[*] Accepted connection from {addr[0]}:{addr[1]}")
+        client_handler = threading.Thread(target=handle_client, args=(client,))
+        client_handler.start()
+
+if __name__ == "__main__":
+    main()

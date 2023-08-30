@@ -1,14 +1,18 @@
 import socket
 
-HOST = '127.0.0.1'
-PORT = 10002
+def main():
+    server_ip = "127.0.0.1"
+    server_port = 8888
+    
+    server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    server.bind((server_ip, server_port))
+    print(f"[*] Listening on {server_ip}:{server_port}")
+    
+    while True:
+        data, addr = server.recvfrom(1024)
+        print(f"[*] Received data from {addr[0]}:{addr[1]} - {data.decode()}")
+        response = b"Hello from UDP Server"
+        server.sendto(response, addr)
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-server_socket.bind((HOST, PORT))
-
-print(f"Listening on {HOST}:{PORT}")
-
-while True:
-    data, addr = server_socket.recvfrom(1024)
-    print(f"Received from {addr}: {data.decode()}")
-    server_socket.sendto(data, addr)
+if __name__ == "__main__":
+    main()
