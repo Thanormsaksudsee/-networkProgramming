@@ -19,3 +19,4 @@ tn.write(b'ip add 10.10.10.10 255.255.255.255\n')
 tn.write(b'end\n')
 tn.write(b'exit\n')
 print(tn.read_all().decode('ascii'))
+
