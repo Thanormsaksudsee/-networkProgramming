@@ -1,20 +1,20 @@
-from netmiiko import ConnectHandler
+from netmiko import ConnectHandler
 
 SW4 = {
     'device_type': 'cisco_ios',
-    'ip': '192.168.1.120', 
+    'ip': '192.168.255.139', 
     'username': 'cisco',
     'password': 'cisco',
 }
 
 SW5 = { 
     'device_type': 'cisco_ios',
-    'ip': '192.168.1.121',
+    'ip': '192.168.255.140',
     'username': 'cisco',
     'password': 'cisco',
 }
 
-f = open('/Week10/swconfig.txt')
+f = open('swconfig.txt')
 lines =f.read().splitlines()
 print(lines)
 

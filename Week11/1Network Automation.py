@@ -8,7 +8,7 @@ USER = 'cisco'
 PASSWORD = 'cisco'
 
 
-
+routers = ['192.168.255.135','192.168.255.136','192.168.255.137']
 
 def ssh_session(router, output_q):
 

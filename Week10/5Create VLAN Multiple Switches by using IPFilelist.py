@@ -7,7 +7,7 @@ f = open('myswitches.txt')
 
 for line in f:
     print('Configuring Switch ' + (line))
-    IP = line
+    IP = line.strip()
 
     tn = telnetlib.Telnet(IP)
 

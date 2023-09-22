@@ -3,8 +3,8 @@ import telnetlib
 username='cisco'
 password='cisco'
 
-for n in range (117,120):
-    IP = '192.168.1.'+str(n)
+for n in range (135,138):
+    IP = '192.168.255.'+str(n)
     
     tn = telnetlib.Telnet(IP)
 
