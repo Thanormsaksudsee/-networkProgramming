@@ -19,4 +19,5 @@ elif errorStatus:
                         errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
 else:
     for varBind in varBinds:
-        print(' = '.join([x.prettyPrint() for x in varBind]))  
+        print(' = '.join([x.prettyPrint() for x in varBind])) 
+         

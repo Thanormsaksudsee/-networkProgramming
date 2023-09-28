@@ -1,0 +1,1 @@
+{'Time': '2023-09-28T03:47:34.720916', 'hostname': None, 'gig0_0_in_oct': None, 'gig0_0_in_uPackets': None, 'gig0_0_out_oct': None, 'gig0_0_out_uPackets': None}
