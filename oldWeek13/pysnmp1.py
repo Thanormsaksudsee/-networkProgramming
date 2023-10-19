@@ -7,7 +7,7 @@ cisco_contact_info_oid = "1.3.6.1.4.1.9.2.1.61.0"
 
 errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
     cmdgen.CommunityData("public"),
-    cmdgen.UdpTransportTarget(("192.168.255.135", 161)),
+    cmdgen.UdpTransportTarget(("192.168.232.50", 161)),
     system_up_time_oid,
     cisco_contact_info_oid,
 )

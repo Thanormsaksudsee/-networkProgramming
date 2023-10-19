@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffffff;
+      background: url('https://www.onlygfx.com/wp-content/uploads/2021/04/white-triangle-pattern-seamless-background-2.jpg') no-repeat center center fixed; /* Set your image path here */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* ภาพที่ 1เขียว */
+    #image1 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 130px; /* ขยับไปทางขวา 50px */
+    }
+    /* ภาพที่ 2แดง */
+    #image2 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 130px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image1 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 130px; /* ขยับไปทางขวา 50px */
+    }
+    /* ภาพที่ 2แดง */
+    #image2 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 130px; /* ขยับไปทางขวา 50px */
+    }
+        /* ภาพที่ 2แดง */
+    #image3 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 175px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image4 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 175px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image5 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 218px; /* ขยับไปทางขวา 50px */
+    }
+
+
+    #image6 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 218px; /* ขยับไปทางขวา 50px */
+    }
+
+
+    #image7 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 261px; /* ขยับไปทางขวา 50px */
+    }
+
+
+    #image8 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 261px; /* ขยับไปทางขวา 50px */
+    }
+
+
+    #image9 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 304px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image10 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 304px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image11 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 347px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image12 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 347px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image13 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 390px; /* ขยับไปทางขวา 50px */
+    }
+
+
+    #image14 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 390px; /* ขยับไปทางขวา 50px */
+    }
+
+    #image15 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 430px; /* ขยับไปทางขวา 50px */
+    }
+
+
+    #image16 {
+    width: 37px;
+    height: 37px;
+    margin-top: 256px; /* ขยับภาพขึ้นเพื่อทับภาพอื่น */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* ตั้งค่าเป็นตำแหน่ง Absolute */
+    z-index: 2; /* ตั้งลำดับการแสดงผลให้สูงกว่า (ให้ซ้อนทับ) ภาพที่ไม่ได้กำหนด z-index */
+    left: 430px; /* ขยับไปทางขวา 50px */
+    }
+
+    /* ภาพที่ 17 */
+    #image17 {
+    width: 500px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Set</h1>
+    
+    <label for="portInput">Port:</label>
+    <input type="text" id="portInput" placeholder="Enter port number">
+
+    <label for="valueInput">Enter Value 1=Up  2=Down</label>
+    <input type="text" id="valueInput" placeholder="Enter value">
+
+    <button onclick="disablePort()">ปิด port</button>
+    <br>
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image2">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image4">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image6">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image8">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image10">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image12">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image14">
+    <img src="https://img.freepik.com/premium-vector/red-off-button-red-power-button-lights-up-isolated-vector_174639-2294.jpg?w=2000" alt="RED" id="image16">
+
+    <!-- ภาพที่ 1 -->
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image1">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image3">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image5">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image7">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image9">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image11">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image13">
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/91/40/switch-on-button-vector-3049140.jpg" alt="Green" id="image15">
+
+
+
+    <!-- ภาพที่ 2 -->
+    <img src="https://img.advice.co.th/images_nas/pic_product4/A0123567/A0123567OK_BIG_2.jpg" alt="Your Image" id="image17">
+    <br>
+    <button onclick="openNewWindow()">Trap</button>
+    <button onclick="openNewWindow2()">Getbulk</button>
+
+  </div>
+
+<script>
+    function openNewWindow() {
+    window.open('http://localhost:10000/', '_blank', 'width=800,height=600');
+  }
+  function openNewWindow2() {
+    window.open('http://localhost:20000/', '_blank', 'width=800,height=600');
+  }
+  function disablePort() {
+  const portToDisable = document.getElementById('portInput').value;
+  const value = document.getElementById('valueInput').value;
+
+  // ตรวจสอบว่า portToDisable เป็นตัวเลขที่ถูกต้องหรือไม่
+  if (!/^\d+$/.test(portToDisable)) {
+    console.error('โปรดระบุ port ให้ถูกต้อง');
+    return;
+  }
+
+  // ตรวจสอบว่า value เป็นตัวเลขที่ถูกต้องหรือไม่
+  if (!/^\d+$/.test(value)) {
+    console.error('โปรดระบุ value ให้ถูกต้อง');
+    return;
+  }
+
+  // แปลง value เป็น integer
+  const intValue = parseInt(value, 10);
+
+
+  if (portToDisable === '1' && intValue === 2) {
+    document.getElementById('image1').style.left = '3000px';
+  }
+
+  if (portToDisable === '1' && intValue === 1) {
+    document.getElementById('image1').style.left = '130px';
+  }
+
+  if (portToDisable === '2' && intValue === 2) {
+    document.getElementById('image3').style.left = '3000px';
+  }
+
+  if (portToDisable === '2' && intValue === 1) {
+    document.getElementById('image3').style.left = '175px';
+
+  }  if (portToDisable === '3' && intValue === 2) {
+    document.getElementById('image5').style.left = '3000px';
+  }
+
+  if (portToDisable === '3' && intValue === 1) {
+    document.getElementById('image5').style.left = '218px';
+
+  }  
+  if (portToDisable === '4' && intValue === 2) {
+    document.getElementById('image7').style.left = '3000px';
+  }
+
+  if (portToDisable === '4' && intValue === 1) {
+    document.getElementById('image7').style.left = '261px';
+  }  
+
+  if (portToDisable === '5' && intValue === 1) {
+    document.getElementById('image9').style.left = '304px';
+
+  }  if (portToDisable === '5' && intValue === 2) {
+    document.getElementById('image9').style.left = '3000px';
+  }
+
+  if (portToDisable === '6' && intValue === 1) {
+    document.getElementById('image11').style.left = '347px';
+  
+  }  if (portToDisable === '6' && intValue === 2) {
+    document.getElementById('image11').style.left = '3000px';
+  }
+
+  if (portToDisable === '7' && intValue === 2) {
+    document.getElementById('image13').style.left = '3000px';} 
+
+  if (portToDisable === '7' && intValue === 1) {
+    document.getElementById('image13').style.left = '390px';
+
+  }  if (portToDisable === '8' && intValue === 2) {
+    document.getElementById('image15').style.left = '3000px';
+  }
+
+  if (portToDisable === '8' && intValue === 1) {
+    document.getElementById('image15').style.left = '430px';
+  }
+
+
+
+  fetch('http://localhost:3000/disablePort', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ portToDisable, value: intValue }),
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('เกิดข้อผิดพลาด:', error));
+}
+</script>
+</body>
+</html>

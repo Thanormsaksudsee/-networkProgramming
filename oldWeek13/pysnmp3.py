@@ -46,6 +46,6 @@ result['gig0_0_in_uPackets'] = snmp_query(host, communnity, gig0_0_in_uPackets)
 result['gig0_0_out_oct'] = snmp_query(host, communnity, gig0_0_out_oct)
 result['gig0_0_out_uPackets'] = snmp_query(host, communnity, gig0_0_out_uPackets)
 
-with open('/Git/-networkProgramming-9/result.txt', 'a') as f:
+with open('/Git/-networkProgramming-15/result.txt', 'a') as f:
     f.write(str(result))
     f.write('\n')
