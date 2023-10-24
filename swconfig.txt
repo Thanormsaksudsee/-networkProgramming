@@ -2,4 +2,4 @@ int range e0/0 - 3
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport nonegotiate
-switchport trunk allowed vlan 1,2
+switchport trunk allowed vlan 1,3
