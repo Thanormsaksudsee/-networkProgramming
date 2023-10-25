@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "express": "^4.18.2",
+    "http": "^0.0.1-security",
     "moment": "^2.29.4",
     "net-snmp": "^3.9.7",
+    "snmp-native": "^1.2.0",
     "socket.io": "^4.7.2"
   }
 }

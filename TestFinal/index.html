@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Port</title>
+</head>
+
+<body>
+  <h1>Control Port</h1>
+
+  <button onclick="controlPort(1)">Turn On</button>
+  <button onclick="controlPort(2)">Turn Off</button>
+
+  <script>
+    function controlPort(value) {
+      const portToControl = prompt('Enter port number:');
+      if (!portToControl) return;
+
+      fetch('/disablePort', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ portToDisable: portToControl, value }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert(data.message);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('An error occurred while controlling the port.');
+        });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 const snmp = require('net-snmp');
 
-const target = '192.168.232.50';
+const target = '192.168.75.50';
 const community = 'private'; 
 const oid = '1.3.6.1.2.1.2.2.1.8.1'; 
 const value = 2; 

@@ -31,16 +31,17 @@ app.post('/disablePort', (req, res) => {
       console.log(`${vb.oid} = ${vb.value}`);
     });
 
-    console.log(`ปิด port ${portToDisable} สำเร็จ`);
+    console.log(`${value == 2 ? 'ปิด' : 'เปิด'} port ${portToDisable} สำเร็จ`);
     session.close();
-    res.json({ success: true, message: `ปิด port ${portToDisable} สำเร็จ` });
+    res.json({ success: true, message: `${value == 2 ? 'ปิด' : 'เปิด'} port ${portToDisable} สำเร็จ` });
   });
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/oldindex.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port http://localhost:${port}`);
+
 });

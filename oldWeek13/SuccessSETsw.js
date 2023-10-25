@@ -1,29 +1,38 @@
 const snmp = require('net-snmp');
+const readline = require('readline');
 
-const target = '192.168.119.50';  
-const community = 'private';  
+const target = '192.168.75.50';
+const community = 'private';
 
-const portToDisable = 7;  
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const session = snmp.createSession(target, community);
+rl.question('Enter the port to disable : ', (portInput) => {
+  const portToDisable = parseInt(portInput) ;
 
+  rl.question('Enter the value (on = 1 | off = 2): ', (valueInput) => {
+    const value = parseInt(valueInput) ;
 
-const oid = `1.3.6.1.2.1.2.2.1.7.${portToDisable}`;
-const value = 1 ;  
+    const session = snmp.createSession(target, community);
+    const oid = `1.3.6.1.2.1.2.2.1.7.${portToDisable}`;
 
+    const varbinds = [
+      { oid, type: snmp.ObjectType.Integer, value }
+    ];
 
-const varbinds = [
-  { oid, type: snmp.ObjectType.Integer, value }
-];
-
-session.set(varbinds, (error, varbinds) => {
-  if (error) {
-    console.error(`เกิดข้อผิดพลาดในการปิด port ${portToDisable}: ${error}`);
-  } else {
-    varbinds.forEach((vb) => {
-      console.log(`${vb.oid} = ${vb.value}`);
+    session.set(varbinds, (error, varbinds) => {
+      if (error) {
+        console.error(`Error disabling port ${portToDisable}: ${error}`);
+      } else {
+        varbinds.forEach((vb) => {
+          console.log(`${vb.oid} = ${vb.value}`);
+        });
+        console.log(`Disabled port ${portToDisable} successfully`);
+      }
+      session.close();
+      rl.close();
     });
-    console.log(`ปิด port ${portToDisable} สำเร็จ`);
-  }
-  session.close();
+  });
 });

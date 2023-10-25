@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telnet Result</title>
+</head>
+<body>
+    <h1>Telnet Result</h1>
+    <ul>
+        {% for ip, result in results.items() %}
+            <li>
+                <strong>IP Address:</strong> {{ ip }}<br>
+                <strong>Result:</strong><br>
+                <pre>{{ result }}</pre>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
